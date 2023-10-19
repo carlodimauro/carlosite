@@ -6,9 +6,9 @@
  */
 
  :root {
-  --primary-color: #2950ff;
-  --text-color: white;
-  --background-color: #797f96;
+  --primary-color: #ffffff;
+  --text-color: black;
+  --background-color: #fffff8;
 }
 
 /**
@@ -135,14 +135,14 @@ h6 {
 
 .poster__header-title {
   margin-bottom: 0.3em;
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .poster__header-subtitle {
   width: 35%;
   float: left;
-  font-size: 14px;
-  line-height: 1;
+  font-size: 18px;
+  line-height: 1.2em
 }
 
 .poster__header-meta {
