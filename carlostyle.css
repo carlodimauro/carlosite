@@ -1,20 +1,17 @@
-/**
- * Mixins
- */
-/**
- * Variables
- */
-
- :root {
-  --primary-color: #92140c;
+:root {
+  --primary-color: #114084;
   --text-color: white;
-  --background-color: #fff8f0;
+  --link-color: rgb(221, 221, 18);
+  --link-color-visited: rgb(170, 20, 21);
+  --link-color-hover:rgb(7, 204, 21);
+  --background-color: #f1f1f1;
 }
+
 
 /**
  * Animations
  */
-@-webkit-keyframes dash {
+ @-webkit-keyframes dash {
   0% {
     stroke-dashoffset: 0;
   }
@@ -40,7 +37,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "times new roman", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,12 +55,12 @@ h6 {
  * Gallery
  */
 .gallery {
+  z-index: -2;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -84,10 +81,12 @@ h6 {
   transform-origin: center center;
 }
 
+
+
 /**
  * Poster
  */
-.poster {
+ .poster {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -97,7 +96,7 @@ h6 {
   vertical-align: middle;
 }
 .poster:before, .poster:after {
-  z-index: -1;
+  z-index: -2;
   position: absolute;
   content: "";
   bottom: 15px;
@@ -124,18 +123,21 @@ h6 {
   background-color: var(--primary-color);
   color: var(--text-color); 
   box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.2);
-}
+  }
 
 .poster__header {
   width: 75%;
   float: left;
   margin-top: 40%;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .poster__header-title {
   margin-bottom: 0.3em;
   font-size: 36px;
+  
 }
 
 .poster__header-subtitle {
@@ -143,6 +145,7 @@ h6 {
   float: left;
   font-size: 18px;
   line-height: 1.2em
+  
 }
 
 .poster__header-meta {
@@ -155,7 +158,6 @@ h6 {
   font-weight: bold;
 }
 
-
 .poster__body {
   position: relative;
   top: 8px;
@@ -165,13 +167,31 @@ h6 {
   font-size: 14px;
   font-weight: bold;
   line-height: 1;
+  position: relative;
+  z-index: 1;
   
 }
 
 .poster__body li {
   margin-bottom: 4px;
+  
 }
 
+/* Default link color */
+.poster__body a {
+  color: var(--link-color);
+  text-decoration: none; /* Remove underline by default */
+}
+
+/* Change color on hover */
+.poster__body a:hover {
+  color: var(--link-color-hover); /* Change to a different color on hover */
+}
+
+/* Change color for visited links */
+.poster__body a:visited {
+  color: var(--link-color-visited); /* Change to a different color for visited links */
+}
 .poster__footer {
   position: absolute;
   top: 45%;
@@ -179,48 +199,53 @@ h6 {
   bottom: auto;
   left: 73.5%;
   font-size: 3px;
-}
-
-.poster__rules {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.poster__rules div {
-  position: absolute;
-}
-
-.smil .poster__rules div rect {
-  stroke-dasharray: 1000;
-  -webkit-animation: dash 20s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
-          animation: dash 20s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
-}
-
-.r-1 {
-  top: -50%;
-  left: 27.5%;
-  z-index: 2;
-}
-
-.r-2 {
-  bottom: -22%;
-  left: 27.5%;
-  z-index: 2;
-}
-
-.r-3 {
-  top: -26%;
-  left: -32%;
+ 
   z-index: 1;
-}
+  }
 
-.r-4 {
-  bottom: -46%;
-  left: -32%;
-  z-index: 3;
-}
+  .poster__rules {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Set a negative z-index to place it behind other elements */
+    }
+  
+  .poster__rules div {
+    position: absolute;
+    }
+  
+  .smil .poster__rules div rect {
+    stroke-dasharray: 1000;
+    -webkit-animation: dash 20s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+            animation: dash 20s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+  }
+  
+  .r-1 {
+    top: -50%;
+    left: 27.5%;
+   
+  }
+  
+  .r-2 {
+    bottom: -22%;
+    left: 27.5%;
+    
+  }
+  
+  .r-3 {
+    top: -26%;
+    left: -32%;
+    
+  }
+  
+  .r-4 {
+    bottom: -46%;
+    left: -32%;
+   
+  }
+  
