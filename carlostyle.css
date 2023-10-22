@@ -1,8 +1,7 @@
 :root {
   --primary-color: #114084;
   --text-color: white;
-  --link-color: rgb(221, 221, 18);
-  --link-color-visited: rgb(170, 20, 21);
+  --link-color: rgba(221, 62, 18, 0.572);
   --link-color-hover:rgb(7, 204, 21);
   --background-color: #f1f1f1;
 }
@@ -184,14 +183,11 @@ h6 {
 }
 
 /* Change color on hover */
-.poster__body a:hover {
+.poster__body li a:hover {
   color: var(--link-color-hover); /* Change to a different color on hover */
 }
 
-/* Change color for visited links */
-.poster__body a:visited {
-  color: var(--link-color-visited); /* Change to a different color for visited links */
-}
+
 .poster__footer {
   position: absolute;
   top: 45%;
